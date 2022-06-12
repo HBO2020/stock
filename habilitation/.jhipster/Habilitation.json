@@ -1,0 +1,42 @@
+{
+  "applications": ["rattachement", "habilitation"],
+  "changelogDate": "20220612141415",
+  "clientRootFolder": "habilitation",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "habilitation",
+  "fields": [
+    {
+      "fieldName": "compte",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "entreprise",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dateMaj",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Product sold by the Online store",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "habilitation",
+  "name": "Habilitation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "compte",
+      "otherEntityName": "fonction",
+      "otherEntityRelationshipName": "habilitation",
+      "relationshipName": "fonction",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceClass"
+}

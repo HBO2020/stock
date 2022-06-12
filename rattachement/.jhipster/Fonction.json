@@ -1,0 +1,36 @@
+{
+  "applications": ["rattachement", "habilitation"],
+  "changelogDate": "20220612141515",
+  "clientRootFolder": "habilitation",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fonction",
+  "fields": [
+    {
+      "fieldName": "idFonction",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pictogramme",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "habilitation",
+  "name": "Fonction",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

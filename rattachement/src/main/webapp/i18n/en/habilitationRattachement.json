@@ -1,0 +1,33 @@
+{
+  "rattachementApp": {
+    "habilitationRattachement": {
+      "home": {
+        "title": "Rattachements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rattachement",
+        "createOrEditLabel": "Create or edit a Rattachement",
+        "notFound": "No Rattachements found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Rattachement {{ id }}?"
+      },
+      "detail": {
+        "title": "Rattachement"
+      },
+      "id": "ID",
+      "idDemande": "Id Demande",
+      "compte": "Compte",
+      "status": "Status",
+      "descriptionRole": "Description Role",
+      "dateCreation": "Date Creation",
+      "dateMaj": "Date Maj"
+    }
+  },
+  "habilitationApp": {
+    "habilitationRattachement": {
+      "created": "A new Rattachement is created with identifier {{ param }}",
+      "updated": "A Rattachement is updated with identifier {{ param }}",
+      "deleted": "A Rattachement is deleted with identifier {{ param }}"
+    }
+  }
+}

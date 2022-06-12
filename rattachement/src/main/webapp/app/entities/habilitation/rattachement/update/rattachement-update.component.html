@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-rattachement-heading"
+        data-cy="RattachementCreateUpdateHeading"
+        jhiTranslate="rattachementApp.habilitationRattachement.home.createOrEditLabel"
+      >
+        Create or edit a Rattachement
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.idDemande" for="field_idDemande"
+            >Id Demande</label
+          >
+          <input type="text" class="form-control" name="idDemande" id="field_idDemande" data-cy="idDemande" formControlName="idDemande" />
+          <div *ngIf="editForm.get('idDemande')!.invalid && (editForm.get('idDemande')!.dirty || editForm.get('idDemande')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('idDemande')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.compte" for="field_compte">Compte</label>
+          <input type="text" class="form-control" name="compte" id="field_compte" data-cy="compte" formControlName="compte" />
+          <div *ngIf="editForm.get('compte')!.invalid && (editForm.get('compte')!.dirty || editForm.get('compte')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('compte')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'rattachementApp.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'rattachementApp.Status.' + status | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.descriptionRole" for="field_descriptionRole"
+            >Description Role</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descriptionRole"
+            id="field_descriptionRole"
+            data-cy="descriptionRole"
+            formControlName="descriptionRole"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.dateCreation" for="field_dateCreation"
+            >Date Creation</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateCreation"
+              data-cy="dateCreation"
+              type="datetime-local"
+              class="form-control"
+              name="dateCreation"
+              formControlName="dateCreation"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="rattachementApp.habilitationRattachement.dateMaj" for="field_dateMaj">Date Maj</label>
+          <div class="d-flex">
+            <input
+              id="field_dateMaj"
+              data-cy="dateMaj"
+              type="datetime-local"
+              class="form-control"
+              name="dateMaj"
+              formControlName="dateMaj"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
