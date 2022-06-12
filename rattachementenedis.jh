@@ -1,0 +1,74 @@
+/*
+ * This is a microservice  demande de rattachement sample with Gateway and three microservice applications
+ * This uses JHipster registry for service discovery and JWT authentication
+ */
+ 
+application {
+  config {
+    baseName rattachement
+    applicationType gateway
+    packageName com.enedis.demande.rattachement
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    prodDatabaseType mysql
+    cacheProvider no
+    buildTool maven
+    clientFramework angular
+    testFrameworks [cypress]
+    reactive true
+  }
+  entities *
+}
+
+application {
+  config {
+    baseName habilitation
+    applicationType microservice
+    packageName com.enedis.habilitation
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    prodDatabaseType mysql
+    cacheProvider hazelcast
+    buildTool maven
+    serverPort 8282
+    skipUserManagement true
+  }
+  entities Habilitation, Fonction, Rattachement
+}
+
+/* Entities for Store Gateway */
+
+entity Rattachement {
+    idDemande String required
+    compte String required
+    status Status required
+    descriptionRole String
+    dateCreation Instant
+    dateMaj Instant
+}
+
+enum Status {
+    DEMANDE, REFUSE, VALIDE, SUPPRIME
+}
+
+/** Product sold by the Online store */
+entity Habilitation {
+    compte String required
+    entreprise Integer
+    dateMaj Instant
+}
+
+entity Fonction {
+    idFonction String required
+    libelle String
+    description String
+    pictogramme String
+}
+
+relationship ManyToOne {
+	Habilitation{fonction(compte) required} to Fonction
+}
+
+service Habilitation, Fonction, Rattachement with serviceClass
+paginate Habilitation, Fonction, Rattachement with pagination
+microservice Habilitation, Fonction, Rattachement with habilitation

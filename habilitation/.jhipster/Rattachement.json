@@ -1,0 +1,47 @@
+{
+  "applications": ["rattachement", "habilitation"],
+  "changelogDate": "20220612141615",
+  "clientRootFolder": "habilitation",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "rattachement",
+  "fields": [
+    {
+      "fieldName": "idDemande",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "compte",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "DEMANDE,REFUSE,VALIDE,SUPPRIME"
+    },
+    {
+      "fieldName": "descriptionRole",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateMaj",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "habilitation",
+  "name": "Rattachement",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

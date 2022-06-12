@@ -1,0 +1,31 @@
+{
+  "rattachementApp": {
+    "habilitationHabilitation": {
+      "home": {
+        "title": "Habilitations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Habilitation",
+        "createOrEditLabel": "Create or edit a Habilitation",
+        "notFound": "No Habilitations found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Habilitation {{ id }}?"
+      },
+      "detail": {
+        "title": "Habilitation"
+      },
+      "id": "ID",
+      "compte": "Compte",
+      "entreprise": "Entreprise",
+      "dateMaj": "Date Maj",
+      "fonction": "Fonction"
+    }
+  },
+  "habilitationApp": {
+    "habilitationHabilitation": {
+      "created": "A new Habilitation is created with identifier {{ param }}",
+      "updated": "A Habilitation is updated with identifier {{ param }}",
+      "deleted": "A Habilitation is deleted with identifier {{ param }}"
+    }
+  }
+}

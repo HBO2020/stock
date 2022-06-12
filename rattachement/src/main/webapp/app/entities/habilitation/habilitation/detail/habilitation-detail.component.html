@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="habilitation">
+      <h2 data-cy="habilitationDetailsHeading">
+        <span jhiTranslate="rattachementApp.habilitationHabilitation.detail.title">Habilitation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ habilitation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="rattachementApp.habilitationHabilitation.compte">Compte</span></dt>
+        <dd>
+          <span>{{ habilitation.compte }}</span>
+        </dd>
+        <dt><span jhiTranslate="rattachementApp.habilitationHabilitation.entreprise">Entreprise</span></dt>
+        <dd>
+          <span>{{ habilitation.entreprise }}</span>
+        </dd>
+        <dt><span jhiTranslate="rattachementApp.habilitationHabilitation.dateMaj">Date Maj</span></dt>
+        <dd>
+          <span>{{ habilitation.dateMaj | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="rattachementApp.habilitationHabilitation.fonction">Fonction</span></dt>
+        <dd>
+          <div *ngIf="habilitation.fonction">
+            <a [routerLink]="['/fonction', habilitation.fonction?.id, 'view']">{{ habilitation.fonction?.compte }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/habilitation', habilitation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "rattachementApp": {
+    "Status": {
+      "null": "",
+      "DEMANDE": "DEMANDE",
+      "REFUSE": "REFUSE",
+      "VALIDE": "VALIDE",
+      "SUPPRIME": "SUPPRIME"
+    }
+  }
+}
